@@ -1,34 +1,3 @@
-void elementsInRangeK1K2(BinaryTreeNode<int>* root, int k1, int k2) {
-	if(root==NULL)return;
-	if(root->left){
-		if(root->left->data<k1 && root->left->data>k2){
-			elementsInRangeK1K2(root->right, k1, k2);
-			return;
-		}
-		elementsInRangeK1K2(root->left, k1, k2);
-	}
-	if( root->data>=k1 && root->data<=k2){
-		cout<<root->data<<" ";
-	}
-	if(root->right){
-		if(root->right->data<k1 && root->right->data>k2){
-			return;
-		}
-		elementsInRangeK1K2(root->right, k1, k2);
-
-	}
-}
-
-
-
-
-
-
-
-// MAIN
-
-
-
 #include <iostream>
 #include <queue>
 
@@ -81,9 +50,38 @@ BinaryTreeNode<int>* takeInput() {
     return root;
 }
 
+
+
+
+
+
+void elementsInRangeK1K2(BinaryTreeNode<int>* root, int k1, int k2) {
+	if(root==NULL)return;
+	if(root->left){
+		if(root->left->data<k1 && root->left->data>k2){
+			elementsInRangeK1K2(root->right, k1, k2);
+			return;
+		}
+		elementsInRangeK1K2(root->left, k1, k2);
+	}
+	if( root->data>=k1 && root->data<=k2){
+		cout<<root->data<<" ";
+	}
+	if(root->right){
+		if(root->right->data<k1 && root->right->data>k2){
+			return;
+		}
+		elementsInRangeK1K2(root->right, k1, k2);
+
+	}
+}
+
 int main() {
+    cout<<"enter input"<<endl;
     BinaryTreeNode<int>* root = takeInput();
     int k1, k2;
+    cout<<"enter k1 and k2"<<endl;
     cin >> k1 >> k2;
     elementsInRangeK1K2(root, k1, k2);
 }
+
