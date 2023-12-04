@@ -1,0 +1,28 @@
+************************ WHATS WRONG IN THIS CODE ***************************
+
+vector<int>* getPath(BinaryTreeNode<int> *root , int data) {
+
+	if(root==NULL){
+		vector<int> x;
+		return &x;
+	}
+}
+
+returning a pointer to a local variable in each case where you create a vector. 
+When a function returns, local variables are destroyed, and returning a pointer 
+to a local variable leads to undefined behavior.
+
+To fix this, you should dynamically allocate the vector on the heap using the "new" operator. 
+Here's a modified version of your code:
+
+vector<int>* getPath(BinaryTreeNode<int>* root, int data) {
+    if (root == NULL) {
+        vector<int>* x = new vector<int>();
+        return x;
+    }
+}
+
+
+************************** DYNAMIC ALLOCATION *****************************
+
+1. always  dynamically allocated memory
