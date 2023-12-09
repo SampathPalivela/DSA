@@ -1,14 +1,3 @@
-bool searchInBST(BinaryTreeNode<int> *root , int k) {
-	if(root==NULL || root->data==k)return root;
-	if(root->data<k) return searchInBST(root->right, k);
-	return searchInBST(root->left, k);
-	// Write your code here
-}
-
-
-
-
-// MAIN
 
 #include <iostream>
 #include <queue>
@@ -62,6 +51,13 @@ BinaryTreeNode<int> *takeInput() {
     }
     return root;
 }
+bool searchInBST(BinaryTreeNode<int> *root , int k) {
+	if(root==NULL || root->data==k)return root;
+	if(root->data<k) return searchInBST(root->right, k);
+	return searchInBST(root->left, k);
+	// Write your code here
+}
+
 
 int main() {
     BinaryTreeNode<int> *root = takeInput();
