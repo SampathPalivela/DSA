@@ -24,7 +24,7 @@ int countsteps(int n, int *arr) {
     if (n % 3 == 0) {
         z = countsteps(n / 3, arr);
     }
-    int output = 1 + std::min(x, std::min(y, z));
+    int output = 1 + min(x, min(y, z));
     arr[n] = output;
     return output;
 }
