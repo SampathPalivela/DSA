@@ -18,7 +18,7 @@ int countsteps(int n, int *arr) {
 
     int x = INT_MAX, y = INT_MAX, z = INT_MAX;
     x = countsteps(n - 1, arr);
-    if (n % 2 == 0) {
+    if (n % 2 == 0){
         y = countsteps(n / 2, arr);
     }
     if (n % 3 == 0) {
